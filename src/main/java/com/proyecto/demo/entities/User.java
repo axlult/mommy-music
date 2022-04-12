@@ -94,6 +94,11 @@ public class User {
         return format.format(Created);
     }
 
+    public void login(String pwd, String correo){
+        setPwd(pwd);
+        setCorreo(correo);
+    }
+
     public String toString() {
         StringBuilder value = new StringBuilder("UserEntry(");
         value.append("Id: ");

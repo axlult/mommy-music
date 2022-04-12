@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -20,23 +21,24 @@ public class UserController {
 
     @RequestMapping("/")
     public String index(Model model){
+        List<User> resultList = userService.getAll();
         model.addAttribute("user", userService.getAll());
         return "index";
     }
 
     //GET
-    @RequestMapping(value = "/agregarDatos", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String navegarPagina(Model model){
         model.addAttribute(new User());
-        return "agregarDatos";
+        return "index";
     }
 
     //POST
-    @RequestMapping(value = "/agregarDatos", method = RequestMethod.POST)
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String accionPagina(User user, BindingResult result, Model model){
         user.setCreated(Date.from(Instant.now()));
         userService.saveUser(user);
-        return "agregarDatos";
+        return "index";
     }
 
 }
