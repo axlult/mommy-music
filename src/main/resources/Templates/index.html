@@ -26,19 +26,19 @@
               </div>
           </div>
           <div class="contenedor_login-registro">
-              <form action="" class="form_login">
+              <form action="#" class="form_login" th:action="@{/index}" th:object="${user}" method="post">
                   <h2>Iniciar Sesión</h2>
-                  <input type="text" th:field="*{}" placeholder="Correo Electrónico"required>
-                  <input type="password" placeholder="Contraseña"required>
+                  <input type="text" th:field="*{correo}" placeholder="Correo Electrónico"required>
+                  <input type="password" th:field="*{pwd}" placeholder="Contraseña"required>
                   <button type="submit">Acceder</button>
               </form>
-              <form action="" class="form_registro">
+              <form action="#" class="form_registro"th:action="@{/index}" th:object="${user}" method="post">
                   <h2>Registrarse</h2>
-                  <input id="nombre" type="text" placeholder="Nombre completo" name="nombre" required>
-                  <input id="fechaNacimiento" type="date" name="fechaNacimiento">
-                  <input id="correo" type="text" placeholder="Correo Electrónico" name="correo" required>
-                  <input id="pwrd" type="password" placeholder="Contraseña" name="pwrd" required>
-                  <input id="genero" type="text" placeholder="Género" name="genero" required>
+                  <input th:field="*{name}" id="nombre" type="text" placeholder="Nombre completo" name="nombre" required>
+                  <input th:field="*{fechaN}" id="fechaNacimiento" type="date" name="fechaNacimiento">
+                  <input th:field="*{correo}" id="correo" type="text" placeholder="Correo Electrónico" name="correo" required>
+                  <input th:field="*{pwd}" id="pwrd" type="password" placeholder="Contraseña" name="pwrd" required>
+                  <input th:field="*{genero}" id="genero" type="text" placeholder="Género" name="genero" required>
                   <button type="submit">Registrarse</button>
               </form>
           </div>
