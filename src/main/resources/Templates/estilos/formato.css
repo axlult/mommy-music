@@ -55,10 +55,10 @@ main{
 }
 
 .paddingTitulo {
-    padding: 50px 0px;
+    padding: 40px 0px;
 }
 
-/*LINEA-PERFIL*/
+/*LINEA-TITULOS*/
 
 .linea {
     position: relative;
@@ -93,7 +93,7 @@ a{
     padding-top: 10px;
     padding-left: 22px;
 	font-size: 20px;
-	color: #FCA382;
+	color: white;
 }
 .d-grid{
     display: grid;

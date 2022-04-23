@@ -1,6 +1,11 @@
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0px;
+    background-image: url("../images/BASE-Musicoterapia.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
 }
 /*COLORES*/
 
@@ -22,7 +27,9 @@ body {
 .color-purple{
     color: #BA2B89
 }
-
+.color-celeste{
+    color: #9ED7E1;
+}
 .color_pink{
     color: #FCA382;
 }
@@ -72,7 +79,7 @@ a:hover, a:focus{
 /*titulo de pantalla*/
 .titulo-span {
     background: #fff;
-    padding: 0 15px;
+    padding: 0 10px;
   }
 
   .fontH{
@@ -82,31 +89,32 @@ a:hover, a:focus{
     text-align: center;
 }
 .paddingTitulo{
-    padding: 50px 0px;
+    padding: 20px 0px;
 
 /*contenido*/
 }
   .p-font{
-    font-size: 15px;
+    font-size: 18px;
   }
 .width-div-texto{
-    width: 55%;
+    width: 50%;
 }
 .border-radius{
     border-radius: 1rem;
     border: #1CBBC4 3px solid;
 }
 
-.padding-img-vacuna{
+.padding-img{
     padding-left: 60px;
 }
 
-.padding-p-vacuna{
-    padding-left: 70px;
+.padding-p{
+    padding-left: 40px;
 }
 
 .p-format{
     text-align: justify;
+    color: white;
 }
 .p-top-padding{
     padding-top: 15px;
@@ -131,12 +139,12 @@ a:hover, a:focus{
     width: 3%;
     height: 40px;
     border-radius: 50%;
-    border: #FCA382 solid;
+    border: white solid;
 }
 .icon-to-top{
     padding-top: 8px;
     font-size: 20px;
-    color: #FCA382;
+    color: white;
     padding-left: 14px;    
 }
 
