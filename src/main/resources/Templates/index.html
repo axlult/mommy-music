@@ -30,7 +30,7 @@
                   <h2>Iniciar Sesión</h2>
                   <input type="text" th:field="*{correo}" placeholder="Correo Electrónico"required>
                   <input type="password" th:field="*{pwd}" placeholder="Contraseña"required>
-                  <button th:href="/logedIn.html" type="submit">Acceder</button>
+                  <button href="/loged.html" type="submit">Acceder</button>
               </form>
               <form action="#" class="form_registro"th:action="@{/index}" th:object="${user}" method="post">
                   <h2>Registrarse</h2>
