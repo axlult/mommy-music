@@ -1,4 +1,4 @@
-package com.cenfotec.mommysmusic.mommysmusic.domain;
+package com.proyecto.demo.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -87,4 +87,5 @@ public class User {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
+
 }

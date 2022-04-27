@@ -1,6 +1,6 @@
-package com.cenfotec.mommysmusic.mommysmusic.service;
+package com.proyecto.demo.services;
 
-import com.cenfotec.mommysmusic.mommysmusic.domain.Track;
+import com.proyecto.demo.entities.Track;
 
 import java.util.List;
 import java.util.Optional;

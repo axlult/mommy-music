@@ -1,6 +1,6 @@
-package com.cenfotec.mommysmusic.mommysmusic.repository;
+package com.proyecto.demo.repositorys;
 
-import com.cenfotec.mommysmusic.mommysmusic.domain.User;
+import com.proyecto.demo.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

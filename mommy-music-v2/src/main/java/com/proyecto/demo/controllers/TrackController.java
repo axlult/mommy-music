@@ -1,7 +1,8 @@
 package com.proyecto.demo.controllers;
 
-import com.cenfotec.mommysmusic.mommysmusic.domain.Track;
-import com.cenfotec.mommysmusic.mommysmusic.service.TrackService;
+import com.proyecto.demo.entities.Track;
+import com.proyecto.demo.services.PlaylistService;
+import com.proyecto.demo.services.TrackService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

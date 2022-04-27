@@ -16,7 +16,7 @@ public class PlaylistServiceImpl implements PlaylistService{
 
     @Override
     public List<Playlist> getAll() {
-        return PlaylistRepository.findAll();
+        return playlistRepository.findAll();
     }
 
     @Override
@@ -34,7 +34,7 @@ public class PlaylistServiceImpl implements PlaylistService{
         Optional<Playlist> record = playlistRepository.findById(playlist.getId());
         if (record.isPresent()) {
             Playlist data = record.get();
-            data.setName(track.getName());
+            data.setName(playlist.getName());
 
             return Optional.of(playlistRepository.save(data));
         }

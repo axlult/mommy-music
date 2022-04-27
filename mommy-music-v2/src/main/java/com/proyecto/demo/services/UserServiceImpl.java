@@ -1,7 +1,7 @@
-package com.cenfotec.mommysmusic.mommysmusic.service;
+package com.proyecto.demo.services;
 
-import com.cenfotec.mommysmusic.mommysmusic.domain.User;
-import com.cenfotec.mommysmusic.mommysmusic.repository.UserRepository;
+import com.proyecto.demo.entities.User;
+import com.proyecto.demo.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

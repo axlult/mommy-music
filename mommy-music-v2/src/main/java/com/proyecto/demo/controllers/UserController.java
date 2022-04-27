@@ -1,7 +1,7 @@
 package com.proyecto.demo.controllers;
 
-import com.cenfotec.mommysmusic.mommysmusic.domain.User;
-import com.cenfotec.mommysmusic.mommysmusic.service.UserService;
+import com.proyecto.demo.entities.User;
+import com.proyecto.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
