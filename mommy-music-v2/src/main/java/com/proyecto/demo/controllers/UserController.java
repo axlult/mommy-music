@@ -1,44 +1,59 @@
 package com.proyecto.demo.controllers;
 
-import com.proyecto.demo.entities.User;
-import com.proyecto.demo.services.UserService;
+import com.cenfotec.mommysmusic.mommysmusic.domain.User;
+import com.cenfotec.mommysmusic.mommysmusic.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-import java.time.Instant;
-import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
-@Controller
+@RestController
+@RequestMapping({"/users"})
 public class UserController {
 
     @Autowired
-    UserService userService;
+    private UserService userService;
 
-    @RequestMapping("/")
-    public String index(Model model){
-        List<User> resultList = userService.getAll();
-        model.addAttribute("user", userService.getAll());
-        return "index";
+    @GetMapping
+    public List getAll(){
+        return userService.getAll();
     }
 
-    //GET
-    @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String navegarPagina(Model model){
-        model.addAttribute(new User());
-        return "index";
+    @GetMapping(path = {"/{id}"})
+    public ResponseEntity<User> findById(@PathVariable long id){
+        Optional<User> result = userService.findById(id);
+        if (result.isPresent()){
+            return ResponseEntity.ok().body(result.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
-    //POST
-    @RequestMapping(value = "/index", method = RequestMethod.POST)
-    public String accionPagina(User user, BindingResult result, Model model){
-        user.setCreated(Date.from(Instant.now()));
-        userService.saveUser(user);
-        return "index";
+    @PostMapping
+    public User create(@RequestBody User user) {
+        return userService.save(user).get();
+    }
+
+    @PutMapping(value = "/{id}")
+    public ResponseEntity<User> update(@PathVariable("id") long id, @RequestBody User user){
+        user.setId(id);
+        Optional<User> result = userService.update(user);
+        if (result.isPresent()){
+            return ResponseEntity.ok().body(result.get());
+        }else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @DeleteMapping(value = "/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") long id){
+        if (userService.delete(id)) {
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
 }

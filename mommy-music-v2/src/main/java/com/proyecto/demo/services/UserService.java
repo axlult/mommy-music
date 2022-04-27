@@ -1,23 +1,15 @@
-package com.proyecto.demo.services;
+package com.cenfotec.mommysmusic.mommysmusic.service;
 
-import com.proyecto.demo.entities.User;
-import com.proyecto.demo.repositorys.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.cenfotec.mommysmusic.mommysmusic.domain.User;
 
 import java.util.List;
+import java.util.Optional;
 
-@Service
-public class UserService {
+public interface UserService {
 
-    @Autowired
-    UserRepository userRepository;
-
-    public void saveUser(User user){
-        userRepository.save(user);
-    }
-
-    public List<User> getAll(){
-        return userRepository.findAll();
-    }
+    public List<User> getAll();
+    public Optional<User> findById(long id);
+    public Optional<User> save(User user);
+    public Optional<User> update(User user);
+    public boolean delete(long id);
 }

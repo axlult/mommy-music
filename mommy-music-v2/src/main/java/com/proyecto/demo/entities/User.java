@@ -1,39 +1,36 @@
-package com.proyecto.demo.entities;
+package com.cenfotec.mommysmusic.mommysmusic.domain;
 
-import javax.persistence.*;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Entity
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private Date fechaN;
-    private String correo;
-    private String pwd;
-    private String genero;
-    private Date Created;
+    private String firstName;
+    private String lastName;
+    private String email;
+    private String gender;
+    private Date birthDate;
 
-    @Transient
-    private SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy");
-
-    //Constructores
     public User() {
     }
 
-    public User(Long id, String name,Date fechaN, String correo, String pwd,String genero, Date date) throws ParseException {
+    public User(Long id, String name, String firstName, String lastName, String email, String gender, Date birthDate) {
         this.id = id;
         this.name = name;
-        this.fechaN = fechaN;
-        this.correo = correo;
-        this.pwd = pwd;
-        this.genero = genero;
-        this.Created = format.parse(String.valueOf(date));
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.gender = gender;
+        this.birthDate = birthDate;
     }
-    //GETTERS Y SETTERS
 
     public Long getId() {
         return id;
@@ -51,72 +48,43 @@ public class User {
         this.name = name;
     }
 
-    public Date getFechaN() {
-        return fechaN;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setFechaN(Date fechaN) {
-        this.fechaN = fechaN;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
-    public String getPwd() {
-        return pwd;
+    public String getEmail() {
+        return email;
     }
 
-    public void setPwd(String pwd) {
-        this.pwd = pwd;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public String getGenero() {
-        return genero;
+    public String getGender() {
+        return gender;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 
-    public Date getCreated() {
-        return Created;
-    }
-    public void setCreated(Date created) {
-        Created = created;
-    }
-    //
-    public String getCreatedAsShort() {
-        return format.format(Created);
+    public Date getBirthDate() {
+        return birthDate;
     }
 
-    public void login(String pwd, String correo){
-        setPwd(pwd);
-        setCorreo(correo);
+    public void setBirthDate(Date birthDate) {
+        this.birthDate = birthDate;
     }
-
-    public String toString() {
-        StringBuilder value = new StringBuilder("UserEntry(");
-        value.append("Id: ");
-        value.append(id);
-        value.append(",Nombre: ");
-        value.append(name);
-        value.append(",Fecha Nacimiento: ");
-        value.append(fechaN);
-        value.append(",Correo: ");
-        value.append(correo);
-        value.append(",contraseña: ");
-        value.append(pwd);
-        value.append(",Genero: ");
-        value.append(genero);
-        value.append(",Created: ");
-        value.append(getCreatedAsShort());
-        value.append(")");
-        return value.toString();
-    }
-
 }

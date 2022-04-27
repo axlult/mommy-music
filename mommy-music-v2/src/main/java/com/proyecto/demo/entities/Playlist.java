@@ -1,4 +1,4 @@
-package com.cenfotec.mommysmusic.mommysmusic.domain;
+package com.proyecto.demo.entities;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -37,5 +37,4 @@ public class Playlist {
     public void setName(String name) {
         this.name = name;
     }
-    
 }
