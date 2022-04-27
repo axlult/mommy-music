@@ -4,8 +4,8 @@ body {
 }
 /*COLORES*/
 
-.bgLightBlue {
-    background-color: #46A2FD;
+.bgPrincipal {
+    background-color: #f0c5a8;
 }
 .bgOrange {
     background-color: #ff9459;
@@ -24,7 +24,7 @@ body {
 }
 
 .color_pink{
-    color: #FCA382;
+    color: #f0c5a8;
 }
 /*HEADER*/
 .paddingHeader {
@@ -97,12 +97,13 @@ a:hover, a:focus{
     border: #1CBBC4 3px solid;
 }
 
-.padding-img-vacuna{
-    padding-left: 60px;
+.padding-img{
+    padding-left: 50px;
 }
 
-.padding-p-vacuna{
-    padding-left: 70px;
+.padding-p{
+    padding-bottom: 70px;
+    margin-left: 30px;
 }
 
 .p-format{
