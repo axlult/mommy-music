@@ -16,18 +16,20 @@ public class User {
     private String firstName;
     private String lastName;
     private String email;
+    private String password;
     private String gender;
     private Date birthDate;
 
     public User() {
     }
 
-    public User(Long id, String name, String firstName, String lastName, String email, String gender, Date birthDate) {
+    public User(Long id, String name, String firstName, String lastName, String email, String password, String gender, Date birthDate) {
         this.id = id;
         this.name = name;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
+        this.password = password;
         this.gender = gender;
         this.birthDate = birthDate;
     }
@@ -72,6 +74,14 @@ public class User {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getGender() {
         return gender;
     }
@@ -87,5 +97,4 @@ public class User {
     public void setBirthDate(Date birthDate) {
         this.birthDate = birthDate;
     }
-
 }
