@@ -1,0 +1,15 @@
+package com.proyecto.demo.services;
+
+import com.proyecto.demo.entities.User;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface UserService {
+
+    public List<User> getAll();
+    public Optional<User> findById(long id);
+    public Optional<User> save(User user);
+    public Optional<User> update(User user);
+    public boolean delete(long id);
+}
