@@ -4,12 +4,15 @@ import com.proyecto.demo.entities.User;
 import com.proyecto.demo.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping({"/users"})
 public class UserController {
 
@@ -18,6 +21,13 @@ public class UserController {
 
     @GetMapping
     public List getAll(){
+        return userService.getAll();
+    }
+
+    //Obtiene lista de usuarios en formato json deserializado para pruebas en Postman
+    @GetMapping(value ="/lista", produces = "application/json")
+    public @ResponseBody
+    List getAllDeserialized(){
         return userService.getAll();
     }
 
@@ -34,6 +44,14 @@ public class UserController {
     @PostMapping
     public User create(@RequestBody User user) {
         return userService.save(user).get();
+    }
+
+    //Crear usuario en la pagina de login/registro
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String accionPaginaInsertar(User user, BindingResult result, Model model){
+        System.out.println(user.toString());
+        userService.save(user);
+        return "logged";
     }
 
     @PutMapping(value = "/{id}")
