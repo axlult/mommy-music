@@ -4,12 +4,12 @@ import com.proyecto.demo.entities.Playlist;
 import com.proyecto.demo.services.PlaylistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import java.util.Optional;
 
-@RestController
+@Controller
 @RequestMapping({"/playlist"})
 public class PlaylistController {
 
@@ -17,12 +17,12 @@ public class PlaylistController {
     private PlaylistService playlistService;
 
     @GetMapping
-    public List getAll(){
+    public Iterable<Playlist> getAll(){
         return playlistService.getAll();
     }
 
     @GetMapping(path = {"/{id}"})
-    public ResponseEntity<Playlist> findById(@PathVariable long id){
+    public ResponseEntity<Playlist> findById(@PathVariable String id){
         Optional<Playlist> result = playlistService.findById(id);
         if (result.isPresent()){
             return ResponseEntity.ok().body(result.get());
@@ -37,7 +37,7 @@ public class PlaylistController {
     }
 
     @PutMapping(value = "/{id}")
-    public ResponseEntity<Playlist> update(@PathVariable("id") long id, @RequestBody Playlist playlist){
+    public ResponseEntity<Playlist> update(@PathVariable("id") String id, @RequestBody Playlist playlist){
         playlist.setId(id);
         Optional<Playlist> result = playlistService.update(playlist);
         if (result.isPresent()){
@@ -48,7 +48,7 @@ public class PlaylistController {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<?> delete(@PathVariable("id") long id){
+    public ResponseEntity<?> delete(@PathVariable("id") String id){
         if (playlistService.delete(id)) {
             return ResponseEntity.ok().build();
         } else {

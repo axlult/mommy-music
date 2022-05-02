@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="Content-Type" content="text/html"></meta>
     <!-- link para css -->
-    <link rel="stylesheet" type="text/css" href="estilos/estilos.css"/>
+    <link th:href="@{/styles/cssandjs/estilos.css}" rel="stylesheet" />
     <!-- link para tipo de letra -->
     <link rel = "preconnect" href = "https://fonts.gstatic.com">
     <link href = "https://fonts.googleapis.com/css2? family = Roboto & display = swap" rel = "hoja de estilo ">
-    <title>Login_Registro_Usuario</title>
+    <title>Mommy's Music - Home</title>
 </head>
 <body>
   <main>
@@ -26,24 +26,29 @@
               </div>
           </div>
           <div class="contenedor_login-registro">
-              <form action="#" class="form_login" th:action="@{/index}" th:object="${user}" method="post">
+              <form action="#" class="form_login" th:action="@{/users/validate}" th:object="${user}" method="post">
                   <h2>Iniciar Sesión</h2>
-                  <input type="text" th:field="*{correo}" placeholder="Correo Electrónico"required>
-                  <input type="password" th:field="*{pwd}" placeholder="Contraseña"required>
+                  <input type="text" th:field="*{email}" placeholder="Correo Electrónico"required>
+                  <input type="password" th:field="*{password}" placeholder="Contraseña"required>
                   <button type="submit">Acceder</button>
               </form>
-              <form action="#" class="form_registro"th:action="@{/index}" th:object="${user}" method="post">
+              <form action="#" class="form_registro"th:action="@{/users/register}" th:object="${user}" method="post">
                   <h2>Registrarse</h2>
                   <input th:field="*{name}" id="nombre" type="text" placeholder="Nombre completo" name="nombre" required>
-                  <input th:field="*{fechaN}" id="fechaNacimiento" type="date" name="fechaNacimiento">
-                  <input th:field="*{correo}" id="correo" type="text" placeholder="Correo Electrónico" name="correo" required>
-                  <input th:field="*{pwd}" id="pwrd" type="password" placeholder="Contraseña" name="pwrd" required>
-                  <input th:field="*{genero}" id="genero" type="text" placeholder="Género" name="genero" required>
+                  <input th:field="*{email}" id="correo" type="text" placeholder="Correo Electrónico" name="correo" required>
+                  <input th:field="*{password}" id="pwrd" type="password" placeholder="Contraseña" name="pwrd" required>
+                  <label for="genero">Genero: </label>
+                  <select id="genero" required th:field="*{gender}">
+                      <option value="" hidden>Seleccionar genero</option>
+                      <option value="masculino">Masculino</option>
+                      <option value="femenino">Femenino</option>
+                  </select>
+                  <input th:field="*{birthDate}" id="fechaNacimiento" type="date" name="fechaNacimiento">
                   <button type="submit">Registrarse</button>
               </form>
           </div>
       </div>
   </main>
-  <script src="script/loginRegistro.js"></script>
+  <script type="text/javascript" th:src="@{/js/cssandjs/loginRegistro.js}"></script>
 </body>
 </html>
