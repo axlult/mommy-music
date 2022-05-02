@@ -5,7 +5,6 @@ import com.proyecto.demo.repositorys.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,12 +14,12 @@ public class UserServiceImpl implements UserService{
     UserRepository userRepository;
 
     @Override
-    public List<User> getAll() {
+    public Iterable<User> getAll() {
         return userRepository.findAll();
     }
 
     @Override
-    public Optional<User> findById(long id) {
+    public Optional<User> findById(String id) {
         return userRepository.findById(id).map(record -> Optional.of(record)).orElse(Optional.empty());
     }
 
@@ -46,7 +45,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean delete(long id) {
+    public boolean delete(String id) {
         Optional<User> result = userRepository.findById(id);
         if(result.isPresent()){
             userRepository.deleteById(id);

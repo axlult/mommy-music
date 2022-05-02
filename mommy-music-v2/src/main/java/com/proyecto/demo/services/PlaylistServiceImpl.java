@@ -5,7 +5,6 @@ import com.proyecto.demo.repositorys.PlaylistRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -15,12 +14,12 @@ public class PlaylistServiceImpl implements PlaylistService{
     PlaylistRepository playlistRepository;
 
     @Override
-    public List<Playlist> getAll() {
+    public Iterable<Playlist> getAll() {
         return playlistRepository.findAll();
     }
 
     @Override
-    public Optional<Playlist> findById(long id) {
+    public Optional<Playlist> findById(String id) {
         return playlistRepository.findById(id).map(record -> Optional.of(record)).orElse(Optional.empty());
     }
 
@@ -42,7 +41,7 @@ public class PlaylistServiceImpl implements PlaylistService{
     }
 
     @Override
-    public boolean delete(long id) {
+    public boolean delete(String id) {
         Optional<Playlist> result = playlistRepository.findById(id);
         if(result.isPresent()){
             playlistRepository.deleteById(id);

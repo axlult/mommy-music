@@ -15,12 +15,12 @@ public class TrackServiceImpl implements TrackService{
     TrackRepository trackRepository;
 
     @Override
-    public List<Track> getAll() {
+    public Iterable<Track> getAll() {
         return trackRepository.findAll();
     }
 
     @Override
-    public Optional<Track> findById(long id) {
+    public Optional<Track> findById(String id) {
         return trackRepository.findById(id).map(record -> Optional.of(record)).orElse(Optional.empty());
     }
 
@@ -46,7 +46,7 @@ public class TrackServiceImpl implements TrackService{
     }
 
     @Override
-    public boolean delete(long id) {
+    public boolean delete(String id) {
         Optional<Track> result = trackRepository.findById(id);
         if(result.isPresent()){
             trackRepository.deleteById(id);

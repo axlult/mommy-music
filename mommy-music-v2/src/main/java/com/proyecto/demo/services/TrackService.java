@@ -7,9 +7,9 @@ import java.util.Optional;
 
 public interface TrackService {
 
-    public List<Track> getAll();
-    public Optional<Track> findById(long id);
+    public Iterable<Track> getAll();
+    public Optional<Track> findById(String id);
     public Optional<Track> save(Track track);
     public Optional<Track> update(Track track);
-    public boolean delete(long id);
+    public boolean delete(String id);
 }
